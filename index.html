@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff4f7">
+<title>daydream ♡ digicam</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@400;500;600&family=Patrick+Hand&display=swap');
+:root{
+  --pink:#ff9fbd; --pink2:#ffd8e5; --cream:#fffaf2; --yellow:#ffe99b;
+  --blue:#cfe8ff; --lav:#e5d8ff; --mint:#d9f5e8; --ink:#493c3b;
+  --shadow:0 12px 35px rgba(120,80,90,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:"Fredoka",system-ui,sans-serif;
+  background:
+    radial-gradient(circle at 10% 15%,#ffe2ec 0 35px,transparent 36px),
+    radial-gradient(circle at 90% 28%,#e4f4ff 0 45px,transparent 46px),
+    linear-gradient(90deg,rgba(255,190,205,.08) 1px,transparent 1px),
+    linear-gradient(rgba(255,190,205,.08) 1px,transparent 1px),var(--cream);
+  background-size:auto,auto,24px 24px,24px 24px;
+  overflow-x:hidden;
+}
+button{font:inherit;border:0;cursor:pointer;color:var(--ink)}
+button:focus-visible{outline:3px solid #8dbdff;outline-offset:3px}
+header{
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
+  background:rgba(255,250,242,.84);border-bottom:1px dashed #efc8d3;
+}
+.nav{max-width:1120px;margin:auto;padding:13px 18px;display:flex;align-items:center;gap:18px}
+.logo{font-family:"Baloo 2";font-weight:700;font-size:29px;letter-spacing:.5px}
+.logo span:nth-child(1){color:#ff8da8}.logo span:nth-child(2){color:#ffbe57}.logo span:nth-child(3){color:#79c98f}
+.logo span:nth-child(4){color:#76afea}.logo span:nth-child(5){color:#bf91e8}
+nav{margin-left:auto;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.nav button{background:transparent;padding:8px 12px;border-radius:999px}
+.nav button:hover,.nav button.active{background:#ffe1ea;transform:translateY(-1px)}
+main{max-width:1120px;margin:auto;padding:28px 18px 70px}
+.hero{min-height:72vh;display:grid;grid-template-columns:1fr .8fr;align-items:center;gap:28px;position:relative}
+.hero h1{font-family:"Baloo 2";font-size:clamp(64px,10vw,125px);line-height:.78;margin:15px 0;background:linear-gradient(90deg,#ff8fab,#ffbd53,#7bcf99,#75aee9,#c28ce5,#ff8fab);background-size:300%;color:transparent;background-clip:text;animation:rainbow 8s linear infinite}
+.hero p{font-family:"Patrick Hand";font-size:25px;margin:18px 0}
+.tape{display:inline-block;padding:5px 22px;background:#dce8f7;transform:rotate(-2deg);font-family:"Patrick Hand";font-size:20px}
+.cta{background:var(--pink);padding:14px 25px;border-radius:999px;box-shadow:0 8px 0 #e681a1;transition:.2s}
+.cta:hover{transform:translateY(-3px);box-shadow:0 11px 0 #e681a1}
+.cta:active{transform:translateY(3px);box-shadow:0 4px 0 #e681a1}
+.hero-card{background:white;border:1px solid #efd8dd;padding:12px;box-shadow:var(--shadow);transform:rotate(2deg);animation:float 4s ease-in-out infinite}
+.hero-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hero-card small{font-family:"Patrick Hand";font-size:19px;display:block;padding:8px}
+.floaty{position:absolute;pointer-events:none;animation:drift 5s ease-in-out infinite}
+.f1{left:2%;top:10%;font-size:25px}.f2{right:4%;top:15%;font-size:30px;animation-delay:1s}.f3{left:44%;bottom:10%;font-size:22px;animation-delay:2s}.f4{right:25%;bottom:20%;font-size:27px;animation-delay:1.4s}
+section{scroll-margin-top:80px;margin-top:35px}
+.section-title{text-align:center;font-family:"Baloo 2";font-size:42px;margin:10px 0 20px}
+.camera-shell{
+  background:linear-gradient(145deg,#fff8e9,#f5e6d0);border:2px solid #e5d2ba;border-radius:34px;
+  padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.camera-top{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px}
+.rec{color:#e85c63;font-size:14px;margin-left:auto}
+.rec i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e85c63;animation:blink 1s infinite}
+.camera-grid{display:grid;grid-template-columns:1fr 230px;gap:18px;margin-top:14px}
+.viewfinder{
+  background:#1e2025;border:9px solid #2c2d31;border-radius:23px;position:relative;aspect-ratio:4/3;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);background:#26242a}
+.cam-placeholder{position:absolute;inset:0;display:grid;place-items:center;color:#fff;text-align:center;padding:30px;background:linear-gradient(135deg,#6b5962,#332d33)}
+.cam-ui{position:absolute;inset:0;padding:12px;color:#fff;text-shadow:0 1px 3px #000;pointer-events:none;font-family:monospace}
+.crosshair{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:36px;opacity:.75}
+.cam-bottom{position:absolute;left:12px;bottom:9px;right:12px;display:flex;justify-content:space-between;font-size:12px}
+.controls{display:flex;flex-direction:column;gap:10px;justify-content:center}
+.control-btn{padding:11px 13px;border-radius:16px;background:#fff9ee;border:1px solid #ddcdb7;box-shadow:0 3px 0 #d6c0a3}
+.control-btn:hover{transform:translateY(-1px)}
+.shutter{width:90px;height:90px;border-radius:50%;align-self:center;background:#ff9fbd;border:8px solid #f8d7c8;box-shadow:0 6px 0 #d77d9c;font-size:35px}
+.shutter:active{transform:translateY(5px);box-shadow:0 1px 0 #d77d9c}
+.notice{font-size:13px;opacity:.72;line-height:1.35}
+.editor{display:none;margin-top:20px;padding:15px;border-radius:26px;background:#fff8ee;border:1px dashed #e2c8c0}
+.editor.show{display:block;animation:pop .35s ease}
+.editor-grid{display:grid;grid-template-columns:1fr 230px;gap:18px}
+.canvas-wrap{position:relative;background:#222;border-radius:18px;overflow:hidden;min-height:250px;display:grid;place-items:center}
+canvas{max-width:100%;display:block}
+.sticker-layer{position:absolute;inset:0;pointer-events:none}
+.sticker{position:absolute;pointer-events:auto;font-size:28px;cursor:grab;user-select:none;touch-action:none;filter:drop-shadow(0 2px 2px #0002)}
+.sticker:active{cursor:grabbing}
+.editor-controls{display:flex;flex-direction:column;gap:11px}
+.toggle{display:flex;align-items:center;justify-content:space-between;background:#fff;padding:11px 12px;border-radius:14px}
+input[type=range]{width:100%;accent-color:#ff9fbd}
+.stickers{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.stickers button{font-size:22px;background:#fff;border:1px solid #edd5d6;border-radius:11px;padding:7px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{background:#ffe5ec;padding:7px 9px;border-radius:999px;font-size:12px}
+.save{background:#ff9fbd;padding:13px;border-radius:14px;font-weight:700}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:15px;border:5px solid #fff;box-shadow:var(--shadow)}
+.empty{grid-column:1/-1;text-align:center;padding:35px;border:1px dashed #e2c6cf;border-radius:20px;font-family:"Patrick Hand";font-size:22px}
+.footer{text-align:center;font-family:"Patrick Hand";font-size:20px;padding:30px}
+.flash{position:fixed;inset:0;background:white;z-index:100;pointer-events:none;opacity:0}
+.flash.go{animation:flash .35s ease}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(100px);background:#493c3b;color:#fff;padding:11px 16px;border-radius:999px;z-index:101;transition:.3s}
+.toast.show{transform:translateX(-50%) translateY(0)}
+@keyframes rainbow{to{background-position:300%}}
+@keyframes float{50%{transform:rotate(-1deg) translateY(-8px)}}
+@keyframes drift{50%{transform:translateY(-12px) rotate(7deg)}}
+@keyframes blink{50%{opacity:.2}}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes flash{0%{opacity:0}30%{opacity:.9}100%{opacity:0}}
+@media(max-width:760px){
+  .nav{padding:10px 13px}.logo{font-size:24px}nav{gap:2px}.nav button{font-size:12px;padding:7px 8px}
+  main{padding:18px 12px 50px}.hero{grid-template-columns:1fr;min-height:auto;padding:40px 4px 55px;text-align:center}.hero h1{font-size:72px}.hero p{font-size:22px}
+  .hero-card{max-width:480px;margin:auto}.camera-grid,.editor-grid{grid-template-columns:1fr}.controls{display:grid;grid-template-columns:repeat(3,1fr)}.shutter{grid-column:1/-1;order:-1}
+  .camera-shell{border-radius:25px;padding:12px}.viewfinder{border-width:6px}.section-title{font-size:35px}.gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:430px){
+  .nav{flex-wrap:wrap}.logo{width:100%;text-align:center}nav{margin:auto}.nav button{font-size:11px}
+  .hero h1{font-size:61px}.hero p{font-size:20px}.controls{grid-template-columns:1fr 1fr}.shutter{width:78px;height:78px}
+}
+</style>
+</head>
+<body>
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast"></div>
+
+<header>
+  <div class="nav">
+    <div class="logo"><span>d</span><span>a</span><span>y</span><span>d</span><span>r</span><span>e</span><span>a</span><span>m</span> ✦</div>
+    <nav>
+      <button class="active" data-target="home">HOME</button>
+      <button data-target="digicam">DIGICAM</button>
+      <button data-target="gallery">GALLERY</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <span class="floaty f1">✦</span><span class="floaty f2">☁︎</span><span class="floaty f3">♡</span><span class="floaty f4">🌷</span>
+  <div>
+    <div class="tape">welcome to my little corner ♡</div>
+    <h1>daydream</h1>
+    <p>collect little memories, take cute pictures,<br>and make ordinary days feel magical ✿</p>
+    <button class="cta" onclick="go('digicam')">enter my world →</button>
+  </div>
+  <div class="hero-card">
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80" alt="flowers">
+    <small>good days ♡ keep the tiny moments</small>
+  </div>
+</section>
+
+<section id="digicam">
+  <h2 class="section-title">📸 DIGICAM</h2>
+  <div class="camera-shell">
+    <div class="camera-top">📷 DIGICAM <span class="rec"><i></i> REC</span></div>
+    <div class="camera-grid">
+      <div class="viewfinder">
+        <video id="video" autoplay playsinline muted></video>
+        <div class="cam-placeholder" id="placeholder">
+          <div><div style="font-size:38px">📷</div><b>your little camera</b><br><span style="font-size:13px">tap START CAMERA to begin ♡</span></div>
+        </div>
+        <div class="cam-ui"><span>12MP</span><span style="float:right">▮▮▮ 🔋</span><div class="crosshair">＋</div><div class="cam-bottom"><span id="dateLabel"></span><span id="timeLabel"></span></div></div>
+      </div>
+      <div class="controls">
+        <button class="control-btn" id="startBtn">📷 START CAMERA</button>
+        <button class="control-btn" id="flipBtn">↔ FLIP CAMERA</button>
+        <button class="control-btn" id="soundBtn">🔊 CLICK SOUND: ON</button>
+        <button class="shutter" id="snapBtn" aria-label="Take picture">📸</button>
+        <div class="notice">Camera access stays in your browser. Photos are processed on your device.</div>
+      </div>
+    </div>
+
+    <div class="editor" id="editor">
+      <h3 style="margin:4px 0 12px">✨ decorate your little memory</h3>
+      <div class="editor-grid">
+        <div class="canvas-wrap" id="canvasWrap">
+          <canvas id="canvas"></canvas>
+          <div class="sticker-layer" id="stickerLayer"></div>
+        </div>
+        <div class="editor-controls">
+          <label class="toggle">dreamy glow <input type="checkbox" id="glow"></label>
+          <label class="toggle">glow strength <input type="range" id="glowStrength" min="0" max="100" value="45"></label>
+          <div><b>filters</b><div class="filters">
+            <button data-filter="none">original</button><button data-filter="warm">warm</button><button data-filter="pink">pink</button><button data-filter="dreamy">dreamy</button><button data-filter="mono">mono</button>
+          </div></div>
+          <div><b>tiny stickers</b><div class="stickers">
+            <button data-sticker="♡">♡</button><button data-sticker="✦">✦</button><button data-sticker="🌷">🌷</button><button data-sticker="🎀">🎀</button><button data-sticker="☁︎">☁︎</button>
+            <button data-sticker="🍒">🍒</button><button data-sticker="🧸">🧸</button><button data-sticker="☆">☆</button><button data-sticker="🫧">🫧</button><button data-sticker="🌸">🌸</button>
+          </div></div>
+          <button class="save" id="saveBtn">♡ SAVE TO GALLERY</button>
+          <button class="control-btn" id="newBtn">↻ TAKE ANOTHER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 class="section-title">🖼️ little gallery</h2>
+  <div class="gallery-grid" id="galleryGrid"><div class="empty" id="empty">your tiny memories will appear here ♡<br>take a picture in DIGICAM!</div></div>
+</section>
+
+<div class="footer">made for collecting tiny happy moments ✿</div>
+</main>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let stream=null, facing='user', soundOn=true, currentImage=null, currentFilter='none';
+const video=$('#video'), canvas=$('#canvas'), ctx=canvas.getContext('2d'), layer=$('#stickerLayer');
+
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+$$('[data-target]').forEach(b=>b.onclick=()=>go(b.dataset.target));
+function toast(t){const x=$('#toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
+function updateClock(){const d=new Date();$('#dateLabel').textContent=d.toLocaleDateString(undefined,{month:'short',day:'2-digit',year:'numeric'}).toUpperCase();$('#timeLabel').textContent=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+setInterval(updateClock,1000);updateClock();
+
+async function startCamera(){
+  try{
+    if(stream) stream.getTracks().forEach(t=>t.stop());
+    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:facing,width:{ideal:1280},height:{ideal:960}},audio:false});
+    video.srcObject=stream; $('#placeholder').style.display='none'; toast('camera ready ♡');
+  }catch(e){toast('camera permission is needed to use DIGICAM ♡');}
+}
+$('#startBtn').onclick=startCamera;
+$('#flipBtn').onclick=()=>{facing=facing==='user'?'environment':'user';startCamera()};
+$('#soundBtn').onclick=()=>{soundOn=!soundOn;$('#soundBtn').textContent=(soundOn?'🔊 CLICK SOUND: ON':'🔇 CLICK SOUND: OFF')};
+
+function clickSound(){
+ if(!soundOn)return;
+ const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+ const a=new AC(),o=a.createOscillator(),g=a.createGain();
+ o.type='triangle';o.frequency.setValueAtTime(780,a.currentTime);o.frequency.exponentialRampToValueAtTime(150,a.currentTime+.09);
+ g.gain.setValueAtTime(.0001,a.currentTime);g.gain.exponentialRampToValueAtTime(.16,a.currentTime+.005);g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+.12);
+ o.connect(g).connect(a.destination);o.start();o.stop(a.currentTime+.13);
+}
+function drawImage(){
+ if(!currentImage)return;
+ canvas.width=currentImage.width;canvas.height=currentImage.height;
+ ctx.save();
+ let f=currentFilter;
+ if(f==='warm')ctx.filter='sepia(.22) saturate(1.18) contrast(1.02)';
+ if(f==='pink')ctx.filter='saturate(1.08) hue-rotate(-8deg) brightness(1.06)';
+ if(f==='dreamy')ctx.filter='brightness(1.08) saturate(1.08) contrast(.94)';
+ if(f==='mono')ctx.filter='grayscale(1) contrast(1.05)';
+ ctx.drawImage(currentImage,0,0);
+ ctx.restore();
+ if($('#glow').checked){
+   const s=+$('#glowStrength').value/100;
+   ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=.14+.26*s;ctx.filter=`blur(${2+8*s}px)`;
+   ctx.drawImage(currentImage,-2,-2,canvas.width+4,canvas.height+4);ctx.restore();
+ }
+}
+$('#snapBtn').onclick=()=>{
+ if(!stream){toast('start the camera first ♡');return}
+ const w=video.videoWidth||960,h=video.videoHeight||720;
+ const temp=document.createElement('canvas');temp.width=w;temp.height=h;
+ const t=temp.getContext('2d');t.save();if(facing==='user')t.translate(w,0),t.scale(-1,1);t.drawImage(video,0,0,w,h);t.restore();
+ const img=new Image();img.onload=()=>{currentImage=img;currentFilter='none';$$('[data-filter]').forEach(x=>x.style.fontWeight='normal');$('#editor').classList.add('show');drawImage();layer.innerHTML='';$('#flash').classList.remove('go');void $('#flash').offsetWidth;$('#flash').classList.add('go');clickSound();toast('SNAP! ♡');go('digicam')};img.src=temp.toDataURL('image/jpeg',.94);
+};
+$$('[data-filter]').forEach(b=>b.onclick=()=>{currentFilter=b.dataset.filter;drawImage()});
+$('#glow').onchange=drawImage;$('#glowStrength').oninput=drawImage;
+
+function addSticker(char){
+ const s=document.createElement('div');s.className='sticker';s.textContent=char;s.style.left=(15+Math.random()*65)+'%';s.style.top=(15+Math.random()*65)+'%';
+ layer.appendChild(s);makeDrag(s);
+}
+$$('[data-sticker]').forEach(b=>b.onclick=()=>addSticker(b.dataset.sticker));
+function makeDrag(el){
+ let sx,sy,ox,oy;
+ const down=e=>{e.preventDefault();const p=e.touches?e.touches[0]:e;sx=p.clientX;sy=p.clientY;const r=el.getBoundingClientRect();ox=r.left;oy=r.top;document.onpointermove=move;document.onpointerup=up};
+ const move=e=>{const dx=e.clientX-sx,dy=e.clientY-sy,r=layer.getBoundingClientRect();el.style.left=((ox+dx-r.left)/r.width*100)+'%';el.style.top=((oy+dy-r.top)/r.height*100)+'%'};const up=()=>{document.onpointermove=null;document.onpointerup=null};
+ el.onpointerdown=down;
+}
+function dataURLWithStickers(){
+ const out=document.createElement('canvas'),r=canvas.getBoundingClientRect(),scale=canvas.width/r.width;
+ out.width=canvas.width;out.height=canvas.height;const c=out.getContext('2d');c.drawImage(canvas,0,0);
+ $$('.sticker').forEach(s=>{const sr=s.getBoundingClientRect();const lr=layer.getBoundingClientRect();const x=(sr.left-lr.left+sr.width/2)/lr.width*out.width;const y=(sr.top-lr.top+sr.height/2)/lr.height*out.height;c.font=(28*scale)+'px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(s.textContent,x,y)});
+ return out.toDataURL('image/jpeg',.95);
+}
+$('#saveBtn').onclick=()=>{
+ const url=dataURLWithStickers();let saved=JSON.parse(localStorage.getItem('daydreamGallery')||'[]');saved.unshift(url);saved=saved.slice(0,20);localStorage.setItem('daydreamGallery',JSON.stringify(saved));renderGallery();toast('saved to your gallery ♡');go('gallery');
+};
+$('#newBtn').onclick=()=>{$('#editor').classList.remove('show');layer.innerHTML='';go('digicam')};
+function renderGallery(){const g=$('#galleryGrid'),a=JSON.parse(localStorage.getItem('daydreamGallery')||'[]');g.innerHTML='';if(!a.length){g.innerHTML='<div class="empty">your tiny memories will appear here ♡<br>take a picture in DIGICAM!</div>';return}a.forEach((u,i)=>{const img=new Image();img.src=u;img.alt='saved memory '+(i+1);img.loading='lazy';g.appendChild(img)})}
+renderGallery();
+window.addEventListener('beforeunload',()=>stream&&stream.getTracks().forEach(t=>t.stop()));
+</script>
+</body>
+</html>
