@@ -1,286 +1,2818 @@
-html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#fff4f7">
-<title>daydream ♡ digicam</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Daydream ♡ Digicam</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@400;500;600&family=Patrick+Hand&display=swap');
-:root{
-  --pink:#ff9fbd; --pink2:#ffd8e5; --cream:#fffaf2; --yellow:#ffe99b;
-  --blue:#cfe8ff; --lav:#e5d8ff; --mint:#d9f5e8; --ink:#493c3b;
-  --shadow:0 12px 35px rgba(120,80,90,.13);
-}
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Fredoka:wght@400;500;600&family=Patrick+Hand&family=DM+Mono&display=swap');
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
-  margin:0;color:var(--ink);font-family:"Fredoka",system-ui,sans-serif;
-  background:
-    radial-gradient(circle at 10% 15%,#ffe2ec 0 35px,transparent 36px),
-    radial-gradient(circle at 90% 28%,#e4f4ff 0 45px,transparent 46px),
-    linear-gradient(90deg,rgba(255,190,205,.08) 1px,transparent 1px),
-    linear-gradient(rgba(255,190,205,.08) 1px,transparent 1px),var(--cream);
-  background-size:auto,auto,24px 24px,24px 24px;
-  overflow-x:hidden;
+ margin:0;color:#514243;font-family:Fredoka,sans-serif;
+ background:
+ linear-gradient(90deg,rgba(255,180,200,.08) 1px,transparent 1px),
+ linear-gradient(rgba(255,180,200,.08) 1px,transparent 1px),
+ #fffaf4;
+ background-size:25px 25px;
+ overflow-x:hidden;
 }
-button{font:inherit;border:0;cursor:pointer;color:var(--ink)}
-button:focus-visible{outline:3px solid #8dbdff;outline-offset:3px}
+
+button{font:inherit;border:0;cursor:pointer}
+
 header{
-  position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
-  background:rgba(255,250,242,.84);border-bottom:1px dashed #efc8d3;
+ position:sticky;top:0;z-index:20;padding:10px 16px;
+ background:#fffaf4e8;backdrop-filter:blur(12px);
+ border-bottom:1px dashed #eccbd4
 }
-.nav{max-width:1120px;margin:auto;padding:13px 18px;display:flex;align-items:center;gap:18px}
-.logo{font-family:"Baloo 2";font-weight:700;font-size:29px;letter-spacing:.5px}
-.logo span:nth-child(1){color:#ff8da8}.logo span:nth-child(2){color:#ffbe57}.logo span:nth-child(3){color:#79c98f}
-.logo span:nth-child(4){color:#76afea}.logo span:nth-child(5){color:#bf91e8}
-nav{margin-left:auto;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-.nav button{background:transparent;padding:8px 12px;border-radius:999px}
-.nav button:hover,.nav button.active{background:#ffe1ea;transform:translateY(-1px)}
-main{max-width:1120px;margin:auto;padding:28px 18px 70px}
-.hero{min-height:72vh;display:grid;grid-template-columns:1fr .8fr;align-items:center;gap:28px;position:relative}
-.hero h1{font-family:"Baloo 2";font-size:clamp(64px,10vw,125px);line-height:.78;margin:15px 0;background:linear-gradient(90deg,#ff8fab,#ffbd53,#7bcf99,#75aee9,#c28ce5,#ff8fab);background-size:300%;color:transparent;background-clip:text;animation:rainbow 8s linear infinite}
-.hero p{font-family:"Patrick Hand";font-size:25px;margin:18px 0}
-.tape{display:inline-block;padding:5px 22px;background:#dce8f7;transform:rotate(-2deg);font-family:"Patrick Hand";font-size:20px}
-.cta{background:var(--pink);padding:14px 25px;border-radius:999px;box-shadow:0 8px 0 #e681a1;transition:.2s}
-.cta:hover{transform:translateY(-3px);box-shadow:0 11px 0 #e681a1}
-.cta:active{transform:translateY(3px);box-shadow:0 4px 0 #e681a1}
-.hero-card{background:white;border:1px solid #efd8dd;padding:12px;box-shadow:var(--shadow);transform:rotate(2deg);animation:float 4s ease-in-out infinite}
-.hero-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.hero-card small{font-family:"Patrick Hand";font-size:19px;display:block;padding:8px}
-.floaty{position:absolute;pointer-events:none;animation:drift 5s ease-in-out infinite}
-.f1{left:2%;top:10%;font-size:25px}.f2{right:4%;top:15%;font-size:30px;animation-delay:1s}.f3{left:44%;bottom:10%;font-size:22px;animation-delay:2s}.f4{right:25%;bottom:20%;font-size:27px;animation-delay:1.4s}
-section{scroll-margin-top:80px;margin-top:35px}
-.section-title{text-align:center;font-family:"Baloo 2";font-size:42px;margin:10px 0 20px}
-.camera-shell{
-  background:linear-gradient(145deg,#fff8e9,#f5e6d0);border:2px solid #e5d2ba;border-radius:34px;
-  padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+
+.nav{
+ max-width:1100px;margin:auto;display:flex;
+ align-items:center;gap:20px
 }
-.camera-top{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px}
-.rec{color:#e85c63;font-size:14px;margin-left:auto}
-.rec i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e85c63;animation:blink 1s infinite}
-.camera-grid{display:grid;grid-template-columns:1fr 230px;gap:18px;margin-top:14px}
+
+.logo{
+ font-family:"Baloo 2";font-size:28px;
+ font-weight:bold;color:#ff91ad
+}
+
+nav{margin-left:auto;display:flex;gap:6px}
+
+nav button{
+ background:transparent;padding:8px 13px;
+ border-radius:30px
+}
+
+nav button:hover{background:#ffe1eb}
+
+main{max-width:1100px;margin:auto;padding:20px}
+
+.hero{
+ min-height:75vh;display:grid;
+ grid-template-columns:1fr .8fr;
+ gap:40px;align-items:center
+}
+
+.hero h1{
+ font-family:"Baloo 2";
+ font-size:clamp(70px,11vw,125px);
+ line-height:.8;margin:20px 0;
+ background:linear-gradient(
+ 90deg,#ff8eaa,#ffbe57,#79cf98,
+ #73afe7,#c28ee7,#ff8eaa);
+ background-size:300%;
+ color:transparent;
+ background-clip:text;
+ animation:rainbow 8s linear infinite
+}
+
+.hero p{
+ font-family:"Patrick Hand";
+ font-size:25px
+}
+
+.tape{
+ display:inline-block;background:#dce9f5;
+ padding:5px 20px;transform:rotate(-2deg);
+ font-family:"Patrick Hand";font-size:20px
+}
+
+.cta{
+ background:#ff9fbd;padding:14px 25px;
+ border-radius:30px;box-shadow:0 6px #df819e;
+ transition:.2s
+}
+
+.cta:hover{transform:translateY(-3px)}
+
+.hero-card{
+ background:white;padding:12px;
+ box-shadow:0 12px 35px #9b758020;
+ transform:rotate(2deg);
+ animation:float 4s ease-in-out infinite
+}
+
+.hero-card img{
+ width:100%;aspect-ratio:4/3;
+ object-fit:cover
+}
+
+.hero-card small{
+ display:block;padding:8px;
+ font-family:"Patrick Hand";font-size:19px
+}
+
+section{
+ scroll-margin-top:80px;
+ margin-top:40px
+}
+
+.title{
+ text-align:center;
+ font-family:"Baloo 2";
+ font-size:42px
+}
+
+/* CAMERA */
+
+.camera{
+ background:linear-gradient(145deg,#fff8e9,#f3e5d1);
+ border:2px solid #e2d0b8;
+ border-radius:30px;padding:18px;
+ box-shadow:0 12px 35px #9b758020
+}
+
+.camera-top{font-size:22px;font-weight:bold}
+
+.rec{
+ float:right;color:#e65c63;font-size:13px
+}
+
+.rec span{
+ display:inline-block;width:9px;height:9px;
+ border-radius:50%;background:#e65c63;
+ animation:blink 1s infinite
+}
+
+.camera-grid{
+ display:grid;
+ grid-template-columns:1fr 220px;
+ gap:18px;margin-top:15px
+}
+
 .viewfinder{
-  background:#1e2025;border:9px solid #2c2d31;border-radius:23px;position:relative;aspect-ratio:4/3;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
+ position:relative;aspect-ratio:4/3;
+ overflow:hidden;background:#222;
+ border:8px solid #2d2d30;
+ border-radius:20px
 }
-video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);background:#26242a}
-.cam-placeholder{position:absolute;inset:0;display:grid;place-items:center;color:#fff;text-align:center;padding:30px;background:linear-gradient(135deg,#6b5962,#332d33)}
-.cam-ui{position:absolute;inset:0;padding:12px;color:#fff;text-shadow:0 1px 3px #000;pointer-events:none;font-family:monospace}
-.crosshair{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:36px;opacity:.75}
-.cam-bottom{position:absolute;left:12px;bottom:9px;right:12px;display:flex;justify-content:space-between;font-size:12px}
-.controls{display:flex;flex-direction:column;gap:10px;justify-content:center}
-.control-btn{padding:11px 13px;border-radius:16px;background:#fff9ee;border:1px solid #ddcdb7;box-shadow:0 3px 0 #d6c0a3}
-.control-btn:hover{transform:translateY(-1px)}
-.shutter{width:90px;height:90px;border-radius:50%;align-self:center;background:#ff9fbd;border:8px solid #f8d7c8;box-shadow:0 6px 0 #d77d9c;font-size:35px}
-.shutter:active{transform:translateY(5px);box-shadow:0 1px 0 #d77d9c}
-.notice{font-size:13px;opacity:.72;line-height:1.35}
-.editor{display:none;margin-top:20px;padding:15px;border-radius:26px;background:#fff8ee;border:1px dashed #e2c8c0}
-.editor.show{display:block;animation:pop .35s ease}
-.editor-grid{display:grid;grid-template-columns:1fr 230px;gap:18px}
-.canvas-wrap{position:relative;background:#222;border-radius:18px;overflow:hidden;min-height:250px;display:grid;place-items:center}
-canvas{max-width:100%;display:block}
-.sticker-layer{position:absolute;inset:0;pointer-events:none}
-.sticker{position:absolute;pointer-events:auto;font-size:28px;cursor:grab;user-select:none;touch-action:none;filter:drop-shadow(0 2px 2px #0002)}
-.sticker:active{cursor:grabbing}
-.editor-controls{display:flex;flex-direction:column;gap:11px}
-.toggle{display:flex;align-items:center;justify-content:space-between;background:#fff;padding:11px 12px;border-radius:14px}
-input[type=range]{width:100%;accent-color:#ff9fbd}
-.stickers{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
-.stickers button{font-size:22px;background:#fff;border:1px solid #edd5d6;border-radius:11px;padding:7px}
-.filters{display:flex;gap:6px;flex-wrap:wrap}
-.filters button{background:#ffe5ec;padding:7px 9px;border-radius:999px;font-size:12px}
-.save{background:#ff9fbd;padding:13px;border-radius:14px;font-weight:700}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.gallery-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:15px;border:5px solid #fff;box-shadow:var(--shadow)}
-.empty{grid-column:1/-1;text-align:center;padding:35px;border:1px dashed #e2c6cf;border-radius:20px;font-family:"Patrick Hand";font-size:22px}
-.footer{text-align:center;font-family:"Patrick Hand";font-size:20px;padding:30px}
-.flash{position:fixed;inset:0;background:white;z-index:100;pointer-events:none;opacity:0}
-.flash.go{animation:flash .35s ease}
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(100px);background:#493c3b;color:#fff;padding:11px 16px;border-radius:999px;z-index:101;transition:.3s}
-.toast.show{transform:translateX(-50%) translateY(0)}
-@keyframes rainbow{to{background-position:300%}}
-@keyframes float{50%{transform:rotate(-1deg) translateY(-8px)}}
-@keyframes drift{50%{transform:translateY(-12px) rotate(7deg)}}
-@keyframes blink{50%{opacity:.2}}
-@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
-@keyframes flash{0%{opacity:0}30%{opacity:.9}100%{opacity:0}}
-@media(max-width:760px){
-  .nav{padding:10px 13px}.logo{font-size:24px}nav{gap:2px}.nav button{font-size:12px;padding:7px 8px}
-  main{padding:18px 12px 50px}.hero{grid-template-columns:1fr;min-height:auto;padding:40px 4px 55px;text-align:center}.hero h1{font-size:72px}.hero p{font-size:22px}
-  .hero-card{max-width:480px;margin:auto}.camera-grid,.editor-grid{grid-template-columns:1fr}.controls{display:grid;grid-template-columns:repeat(3,1fr)}.shutter{grid-column:1/-1;order:-1}
-  .camera-shell{border-radius:25px;padding:12px}.viewfinder{border-width:6px}.section-title{font-size:35px}.gallery-grid{grid-template-columns:repeat(2,1fr)}
+
+video{
+ width:100%;height:100%;
+ object-fit:cover;
+ transform:scaleX(-1)
 }
+
+.placeholder{
+ position:absolute;inset:0;
+ display:grid;place-items:center;
+ text-align:center;color:white;
+ background:linear-gradient(135deg,#74616b,#302c31)
+}
+
+.cam-ui{
+ position:absolute;inset:10px;
+ color:white;text-shadow:0 1px 3px #000;
+ font-family:monospace;
+ pointer-events:none
+}
+
+.cross{
+ position:absolute;top:50%;left:50%;
+ transform:translate(-50%,-50%);
+ font-size:35px
+}
+
+.cam-bottom{
+ position:absolute;bottom:0;left:0;right:0;
+ display:flex;justify-content:space-between;
+ font-size:11px
+}
+
+.controls{
+ display:flex;flex-direction:column;
+ gap:10px;justify-content:center
+}
+
+.control{
+ padding:12px;border-radius:15px;
+ background:#fffaf0;
+ border:1px solid #ddcbb2;
+ box-shadow:0 3px #d4bea0
+}
+
+.shutter{
+ align-self:center;width:85px;height:85px;
+ border-radius:50%;background:#ff9fbd;
+ border:8px solid #f6d8cb;
+ box-shadow:0 6px #d47b99;
+ font-size:32px
+}
+
+.shutter:active{
+ transform:translateY(5px);
+ box-shadow:0 1px #d47b99
+}
+
+/* EDITOR */
+
+.editor{
+ display:none;margin-top:20px;padding:15px;
+ background:#fff8ee;
+ border:1px dashed #dfc6c1;
+ border-radius:25px
+}
+
+.editor.show{
+ display:block;
+ animation:pop .35s ease
+}
+
+.editor-grid{
+ display:grid;
+ grid-template-columns:1fr 270px;
+ gap:18px
+}
+
+.canvas-wrap{
+ position:relative;background:#222;
+ border-radius:18px;
+ overflow:hidden;
+ display:grid;
+ place-items:center
+}
+
+canvas{
+ max-width:100%;
+ display:block
+}
+
+.stickers-layer{
+ position:absolute;
+ inset:0;
+ overflow:hidden
+}
+
+/* ALL MOVABLE ITEMS */
+
+.design-item{
+ position:absolute;
+ left:20%;top:20%;
+ cursor:grab;
+ user-select:none;
+ touch-action:none;
+ transform-origin:center;
+ line-height:1;
+ white-space:nowrap;
+ filter:drop-shadow(0 2px 2px rgba(80,50,60,.15))
+}
+
+.design-item.selected{
+ outline:2px dashed #ff91ad;
+ outline-offset:5px
+}
+
+.sticker{font-size:30px}
+
+.text-item{font-size:30px}
+
+.text-cute{
+ font-family:"Patrick Hand";
+ color:#ff7398
+}
+
+.text-bubble{
+ font-family:"Baloo 2";
+ font-weight:700;
+ color:#9d75d6
+}
+
+.text-type{
+ font-family:"DM Mono",monospace;
+ color:#514243
+}
+
+.text-soft{
+ font-family:Fredoka;
+ color:#7da4c5
+}
+
+.photo-item{
+ width:150px;
+ border:5px solid white;
+ box-shadow:0 8px 18px rgba(70,50,50,.18)
+}
+
+.editor-controls{
+ display:flex;
+ flex-direction:column;
+ gap:12px
+}
+
+.toggle{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:white;
+ padding:12px;
+ border-radius:14px
+}
+
+input[type=range]{
+ width:100%;
+ accent-color:#ff9fbd
+}
+
+.filters{
+ display:flex;
+ flex-wrap:wrap;
+ gap:6px
+}
+
+.filters button{
+ background:#ffe3eb;
+ padding:7px 10px;
+ border-radius:20px
+}
+
+.feature-box{
+ background:#fff;
+ border:1px solid #efd5da;
+ border-radius:16px;
+ padding:12px
+}
+
+.feature-box b{
+ display:block;
+ margin-bottom:7px
+}
+
+/* BORDERS */
+
+.border-options{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:7px
+}
+
+.border-btn{
+ padding:9px 4px;
+ background:#fffaf4;
+ border:1px solid #efd5da;
+ border-radius:12px;
+ font-size:12px
+}
+
+.border-btn.active{
+ background:#ffe0eb;
+ border-color:#ff91ad;
+ box-shadow:0 0 0 2px #ffd0dd
+}
+
+/* TEXT */
+
+.text-row{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:7px
+}
+
+.text-input,.text-select{
+ width:100%;
+ padding:9px;
+ border:1px solid #e4cfd2;
+ border-radius:12px;
+ background:white;
+ font:inherit
+}
+
+/* UPLOAD */
+
+.upload-label{
+ display:block;
+ text-align:center;
+ padding:10px;
+ border-radius:12px;
+ background:#e8f2ff;
+ border:1px dashed #a9c9e8;
+ cursor:pointer
+}
+
+.upload-label input{display:none}
+
+/* STICKERS */
+
+.stickers{
+ display:grid;
+ grid-template-columns:repeat(6,1fr);
+ gap:6px;
+ max-height:160px;
+ overflow:auto;
+ padding:2px
+}
+
+.stickers button{
+ background:white;
+ border:1px solid #efd5da;
+ border-radius:10px;
+ padding:7px;
+ font-size:20px
+}
+
+/* SELECTED ITEM */
+
+.selected-tools{
+ background:#fff;
+ border:1px dashed #e2c8cf;
+ border-radius:14px;
+ padding:10px
+}
+
+.rotation-buttons{
+ display:flex;
+ gap:6px
+}
+
+.rotation-buttons button{
+ flex:1;
+ background:#f7e8ee;
+ border-radius:10px;
+ padding:8px
+}
+
+.delete-btn{
+ width:100%;
+ background:#ffe1e7;
+ color:#b44d68;
+ border-radius:10px;
+ padding:9px
+}
+
+.helper{
+ font-size:12px;
+ color:#8d777a
+}
+
+.save{
+ background:#ff9fbd;
+ padding:13px;
+ border-radius:15px;
+ font-weight:bold
+}
+
+/* GALLERY */
+
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px
+}
+
+.gallery img{
+ width:100%;
+ aspect-ratio:1;
+ object-fit:cover;
+ border-radius:15px;
+ border:5px solid white;
+ box-shadow:0 8px 20px #9b758020
+}
+
+.empty{
+ grid-column:1/-1;
+ text-align:center;
+ padding:40px;
+ font-family:"Patrick Hand";
+ font-size:22px;
+ border:1px dashed #dfc6cf;
+ border-radius:20px
+}
+
+/* POPUPS */
+
+.flash{
+ position:fixed;inset:0;
+ background:white;
+ pointer-events:none;
+ opacity:0;
+ z-index:100
+}
+
+.flash.active{animation:flash .35s}
+
+.toast{
+ position:fixed;
+ bottom:20px;
+ left:50%;
+ transform:translate(-50%,100px);
+ background:#514243;
+ color:white;
+ padding:11px 17px;
+ border-radius:30px;
+ z-index:101;
+ transition:.3s
+}
+
+.toast.show{
+ transform:translate(-50%,0)
+}
+
+@keyframes rainbow{
+ to{background-position:300%}
+}
+
+@keyframes float{
+ 50%{transform:rotate(-1deg) translateY(-8px)}
+}
+
+@keyframes blink{
+ 50%{opacity:.2}
+}
+
+@keyframes flash{
+ 0%{opacity:0}
+ 30%{opacity:.9}
+ 100%{opacity:0}
+}
+
+@keyframes pop{
+ from{opacity:0;transform:translateY(10px)}
+ to{opacity:1;transform:none}
+}
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+ .nav{
+  flex-wrap:wrap;
+  justify-content:center
+ }
+
+ .logo{
+  width:100%;
+  text-align:center
+ }
+
+ nav{margin:auto}
+
+ main{padding:12px}
+
+ .hero{
+  grid-template-columns:1fr;
+  text-align:center;
+  min-height:auto;
+  padding:50px 5px
+ }
+
+ .hero h1{font-size:70px}
+
+ .hero-card{
+  max-width:480px;
+  margin:auto
+ }
+
+ .camera-grid,
+ .editor-grid{
+  grid-template-columns:1fr
+ }
+
+ .controls{
+  display:grid;
+  grid-template-columns:1fr 1fr
+ }
+
+ .shutter{
+  grid-column:1/-1;
+  order:-1
+ }
+
+ .gallery{
+  grid-template-columns:repeat(2,1fr)
+ }
+}
+
 @media(max-width:430px){
-  .nav{flex-wrap:wrap}.logo{width:100%;text-align:center}nav{margin:auto}.nav button{font-size:11px}
-  .hero h1{font-size:61px}.hero p{font-size:20px}.controls{grid-template-columns:1fr 1fr}.shutter{width:78px;height:78px}
+
+ nav button{
+  font-size:11px;
+  padding:7px 9px
+ }
+
+ .hero h1{font-size:58px}
+
+ .hero p{font-size:21px}
+
+ .camera{padding:10px}
+
+ .camera-grid{gap:10px}
+
+ .border-options{
+  grid-template-columns:repeat(2,1fr)
+ }
 }
 </style>
 </head>
+
 <body>
+
 <div class="flash" id="flash"></div>
 <div class="toast" id="toast"></div>
 
 <header>
-  <div class="nav">
-    <div class="logo"><span>d</span><span>a</span><span>y</span><span>d</span><span>r</span><span>e</span><span>a</span><span>m</span> ✦</div>
-    <nav>
-      <button class="active" data-target="home">HOME</button>
-      <button data-target="digicam">DIGICAM</button>
-      <button data-target="gallery">GALLERY</button>
-    </nav>
-  </div>
+<div class="nav">
+
+<div class="logo">
+daydream ✦
+</div>
+
+<nav>
+<button onclick="go('home')">HOME</button>
+<button onclick="go('digicam')">DIGICAM</button>
+<button onclick="go('gallery')">GALLERY</button>
+</nav>
+
+</div>
 </header>
 
 <main>
+
+<!-- HOME -->
+
 <section id="home" class="hero">
-  <span class="floaty f1">✦</span><span class="floaty f2">☁︎</span><span class="floaty f3">♡</span><span class="floaty f4">🌷</span>
-  <div>
-    <div class="tape">welcome to my little corner ♡</div>
-    <h1>daydream</h1>
-    <p>collect little memories, take cute pictures,<br>and make ordinary days feel magical ✿</p>
-    <button class="cta" onclick="go('digicam')">enter my world →</button>
-  </div>
-  <div class="hero-card">
-    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80" alt="flowers">
-    <small>good days ♡ keep the tiny moments</small>
-  </div>
+
+<div>
+
+<div class="tape">
+welcome to my little corner ♡
+</div>
+
+<h1>daydream</h1>
+
+<p>
+collect little memories,<br>
+take cute pictures,<br>
+and make ordinary days magical ✿
+</p>
+
+<button class="cta" onclick="go('digicam')">
+enter my world →
+</button>
+
+</div>
+
+<div class="hero-card">
+
+<img
+src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80"
+alt="flowers"
+>
+
+<small>
+good days ♡ keep the tiny moments
+</small>
+
+</div>
+
 </section>
+
+
+<!-- DIGICAM -->
 
 <section id="digicam">
-  <h2 class="section-title">📸 DIGICAM</h2>
-  <div class="camera-shell">
-    <div class="camera-top">📷 DIGICAM <span class="rec"><i></i> REC</span></div>
-    <div class="camera-grid">
-      <div class="viewfinder">
-        <video id="video" autoplay playsinline muted></video>
-        <div class="cam-placeholder" id="placeholder">
-          <div><div style="font-size:38px">📷</div><b>your little camera</b><br><span style="font-size:13px">tap START CAMERA to begin ♡</span></div>
-        </div>
-        <div class="cam-ui"><span>12MP</span><span style="float:right">▮▮▮ 🔋</span><div class="crosshair">＋</div><div class="cam-bottom"><span id="dateLabel"></span><span id="timeLabel"></span></div></div>
-      </div>
-      <div class="controls">
-        <button class="control-btn" id="startBtn">📷 START CAMERA</button>
-        <button class="control-btn" id="flipBtn">↔ FLIP CAMERA</button>
-        <button class="control-btn" id="soundBtn">🔊 CLICK SOUND: ON</button>
-        <button class="shutter" id="snapBtn" aria-label="Take picture">📸</button>
-        <div class="notice">Camera access stays in your browser. Photos are processed on your device.</div>
-      </div>
-    </div>
 
-    <div class="editor" id="editor">
-      <h3 style="margin:4px 0 12px">✨ decorate your little memory</h3>
-      <div class="editor-grid">
-        <div class="canvas-wrap" id="canvasWrap">
-          <canvas id="canvas"></canvas>
-          <div class="sticker-layer" id="stickerLayer"></div>
-        </div>
-        <div class="editor-controls">
-          <label class="toggle">dreamy glow <input type="checkbox" id="glow"></label>
-          <label class="toggle">glow strength <input type="range" id="glowStrength" min="0" max="100" value="45"></label>
-          <div><b>filters</b><div class="filters">
-            <button data-filter="none">original</button><button data-filter="warm">warm</button><button data-filter="pink">pink</button><button data-filter="dreamy">dreamy</button><button data-filter="mono">mono</button>
-          </div></div>
-          <div><b>tiny stickers</b><div class="stickers">
-            <button data-sticker="♡">♡</button><button data-sticker="✦">✦</button><button data-sticker="🌷">🌷</button><button data-sticker="🎀">🎀</button><button data-sticker="☁︎">☁︎</button>
-            <button data-sticker="🍒">🍒</button><button data-sticker="🧸">🧸</button><button data-sticker="☆">☆</button><button data-sticker="🫧">🫧</button><button data-sticker="🌸">🌸</button>
-          </div></div>
-          <button class="save" id="saveBtn">♡ SAVE TO GALLERY</button>
-          <button class="control-btn" id="newBtn">↻ TAKE ANOTHER</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2 class="title">📸 DIGICAM</h2>
+
+<div class="camera">
+
+<div class="camera-top">
+
+📷 DIGICAM
+
+<span class="rec">
+<span></span> REC
+</span>
+
+</div>
+
+<div class="camera-grid">
+
+<div class="viewfinder">
+
+<video
+id="video"
+autoplay
+playsinline
+muted>
+</video>
+
+<div class="placeholder" id="placeholder">
+
+<div>
+
+<div style="font-size:40px">
+📷
+</div>
+
+<b>your little camera</b>
+
+<br>
+
+<small>
+tap START CAMERA to begin ♡
+</small>
+
+</div>
+
+</div>
+
+<div class="cam-ui">
+
+12MP
+
+<span style="float:right">
+▮▮▮ 🔋
+</span>
+
+<div class="cross">
+＋
+</div>
+
+<div class="cam-bottom">
+
+<span id="date"></span>
+<span id="time"></span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="controls">
+
+<button
+class="control"
+onclick="startCamera()">
+📷 START CAMERA
+</button>
+
+<button
+class="control"
+onclick="flipCamera()">
+↔ FLIP CAMERA
+</button>
+
+<button
+class="control"
+id="soundButton"
+onclick="toggleSound()">
+🔊 CLICK SOUND: ON
+</button>
+
+<button
+class="shutter"
+onclick="takePicture()">
+📸
+</button>
+
+<small>
+Camera access stays in your browser.<br>
+Photos are processed on your device.
+</small>
+
+</div>
+
+</div>
+
+
+<!-- EDITOR -->
+
+<div class="editor" id="editor">
+
+<h3>
+✨ decorate your little memory
+</h3>
+
+<div class="editor-grid">
+
+
+<!-- CANVAS -->
+
+<div class="canvas-wrap">
+
+<canvas id="canvas"></canvas>
+
+<div
+class="stickers-layer"
+id="stickers">
+</div>
+
+</div>
+
+
+<!-- CONTROLS -->
+
+<div class="editor-controls">
+
+
+<label class="toggle">
+
+Dreamy glow
+
+<input
+type="checkbox"
+id="glow"
+onchange="draw()">
+
+</label>
+
+
+<label>
+
+Glow strength
+
+<input
+type="range"
+id="glowStrength"
+min="0"
+max="100"
+value="45"
+oninput="draw()">
+
+</label>
+
+
+<!-- BORDERS -->
+
+<div class="feature-box">
+
+<b>🎀 Border</b>
+
+<div class="border-options">
+
+<button
+class="border-btn active"
+data-border="none"
+onclick="setBorder('none',this)">
+none ♡
+</button>
+
+<button
+class="border-btn"
+data-border="kitty"
+onclick="setBorder('kitty',this)">
+🐱 kitty
+</button>
+
+<button
+class="border-btn"
+data-border="gingham"
+onclick="setBorder('gingham',this)">
+🎀 gingham
+</button>
+
+<button
+class="border-btn"
+data-border="floral"
+onclick="setBorder('floral',this)">
+🌷 floral
+</button>
+
+<button
+class="border-btn"
+data-border="bunny"
+onclick="setBorder('bunny',this)">
+🐰 bunny
+</button>
+
+<button
+class="border-btn"
+data-border="dream"
+onclick="setBorder('dream',this)">
+☁️ dream
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FILTERS -->
+
+<div>
+
+<b>Filters</b>
+
+<div class="filters">
+
+<button onclick="filter('none')">
+original
+</button>
+
+<button onclick="filter('warm')">
+warm
+</button>
+
+<button onclick="filter('pink')">
+pink
+</button>
+
+<button onclick="filter('dreamy')">
+dreamy
+</button>
+
+<button onclick="filter('mono')">
+mono
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STICKERS -->
+
+<div class="feature-box">
+
+<b>
+🧸 More cute stickers
+</b>
+
+<div class="stickers">
+
+<button onclick="addSticker('♡')">♡</button>
+<button onclick="addSticker('♥')">♥</button>
+<button onclick="addSticker('✦')">✦</button>
+<button onclick="addSticker('✧')">✧</button>
+<button onclick="addSticker('☆')">☆</button>
+<button onclick="addSticker('★')">★</button>
+
+<button onclick="addSticker('🎀')">🎀</button>
+<button onclick="addSticker('🌷')">🌷</button>
+<button onclick="addSticker('🌸')">🌸</button>
+<button onclick="addSticker('🌼')">🌼</button>
+<button onclick="addSticker('🌻')">🌻</button>
+<button onclick="addSticker('🪻')">🪻</button>
+
+<button onclick="addSticker('🍓')">🍓</button>
+<button onclick="addSticker('🍒')">🍒</button>
+<button onclick="addSticker('🍰')">🍰</button>
+<button onclick="addSticker('🧁')">🧁</button>
+<button onclick="addSticker('🍪')">🍪</button>
+<button onclick="addSticker('🍬')">🍬</button>
+
+<button onclick="addSticker('🧸')">🧸</button>
+<button onclick="addSticker('🐱')">🐱</button>
+<button onclick="addSticker('🐰')">🐰</button>
+<button onclick="addSticker('🐻')">🐻</button>
+<button onclick="addSticker('🐼')">🐼</button>
+<button onclick="addSticker('🐣')">🐣</button>
+
+<button onclick="addSticker('🦋')">🦋</button>
+<button onclick="addSticker('🐝')">🐝</button>
+<button onclick="addSticker('☁️')">☁️</button>
+<button onclick="addSticker('☀️')">☀️</button>
+<button onclick="addSticker('🌙')">🌙</button>
+<button onclick="addSticker('💫')">💫</button>
+
+<button onclick="addSticker('🫧')">🫧</button>
+<button onclick="addSticker('💌')">💌</button>
+<button onclick="addSticker('📷')">📷</button>
+<button onclick="addSticker('🎧')">🎧</button>
+<button onclick="addSticker('🩷')">🩷</button>
+<button onclick="addSticker('💗')">💗</button>
+
+</div>
+
+</div>
+
+
+<!-- TEXT -->
+
+<div class="feature-box">
+
+<b>✏️ Add text</b>
+
+<div class="text-row">
+
+<input
+class="text-input"
+id="textInput"
+placeholder="write something ♡">
+
+<select
+class="text-select"
+id="textStyle">
+
+<option value="cute">
+cute handwriting
+</option>
+
+<option value="bubble">
+bubble
+</option>
+
+<option value="type">
+typewriter
+</option>
+
+<option value="soft">
+soft
+</option>
+
+</select>
+
+</div>
+
+<button
+class="control"
+style="width:100%;margin-top:7px"
+onclick="addText()">
+
+＋ ADD TEXT
+
+</button>
+
+</div>
+
+
+<!-- CUSTOM IMAGE -->
+
+<div class="feature-box">
+
+<b>
+🖼️ Add your own picture
+</b>
+
+<label class="upload-label">
+
+＋ choose a picture
+
+<input
+type="file"
+id="imageUpload"
+accept="image/*"
+onchange="addCustomImage(event)">
+
+</label>
+
+</div>
+
+
+<!-- SELECTED ITEM -->
+
+<div class="selected-tools">
+
+<b>
+🎛️ Selected item
+</b>
+
+<div
+class="helper"
+id="selectedHint">
+
+tap a sticker, text or picture to edit it
+
+</div>
+
+<div
+id="selectedControls"
+style="display:none">
+
+<label>
+
+Size
+
+<input
+type="range"
+id="itemSize"
+min="20"
+max="180"
+value="50"
+oninput="changeSelectedSize(this.value)">
+
+</label>
+
+<label>
+
+Rotation
+
+<input
+type="range"
+id="itemRotation"
+min="-180"
+max="180"
+value="0"
+oninput="changeSelectedRotation(this.value)">
+
+</label>
+
+<div class="rotation-buttons">
+
+<button onclick="rotateSelected(-15)">
+↶ -15°
+</button>
+
+<button onclick="rotateSelected(15)">
++15° ↷
+</button>
+
+</div>
+
+<button
+class="delete-btn"
+onclick="deleteSelected()">
+
+🗑️ delete selected
+
+</button>
+
+</div>
+
+</div>
+
+
+<small class="helper">
+
+Tip: drag anything around, tap it to select it,
+then rotate or resize it. ♡
+
+</small>
+
+
+<button
+class="save"
+onclick="savePicture()">
+
+♡ SAVE TO GALLERY
+
+</button>
+
+<button
+class="control"
+onclick="newPicture()">
+
+↻ TAKE ANOTHER
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- GALLERY -->
 
 <section id="gallery">
-  <h2 class="section-title">🖼️ little gallery</h2>
-  <div class="gallery-grid" id="galleryGrid"><div class="empty" id="empty">your tiny memories will appear here ♡<br>take a picture in DIGICAM!</div></div>
+
+<h2 class="title">
+🖼️ little gallery
+</h2>
+
+<div
+class="gallery"
+id="gallery">
+
+<div class="empty">
+
+your tiny memories will appear here ♡
+
+<br>
+
+take a picture in DIGICAM!
+
+</div>
+
+</div>
+
 </section>
 
-<div class="footer">made for collecting tiny happy moments ✿</div>
+
+<footer
+style="text-align:center;padding:40px;font-family:'Patrick Hand';font-size:20px">
+
+made for collecting tiny happy moments ✿
+
+</footer>
+
 </main>
 
-<script>
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let stream=null, facing='user', soundOn=true, currentImage=null, currentFilter='none';
-const video=$('#video'), canvas=$('#canvas'), ctx=canvas.getContext('2d'), layer=$('#stickerLayer');
 
-function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
-$$('[data-target]').forEach(b=>b.onclick=()=>go(b.dataset.target));
-function toast(t){const x=$('#toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
-function updateClock(){const d=new Date();$('#dateLabel').textContent=d.toLocaleDateString(undefined,{month:'short',day:'2-digit',year:'numeric'}).toUpperCase();$('#timeLabel').textContent=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});}
-setInterval(updateClock,1000);updateClock();
+<script>
+
+let stream=null;
+let facing="user";
+let sound=true;
+let currentImage=null;
+let currentFilter="none";
+let currentBorder="none";
+let selectedElement=null;
+
+const video=document.getElementById("video");
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+
+/* NAVIGATION */
+
+function go(id){
+
+document.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* TOAST */
+
+function toast(message){
+
+const t=document.getElementById("toast");
+
+t.textContent=message;
+t.classList.add("show");
+
+setTimeout(()=>{
+t.classList.remove("show");
+},1800);
+
+}
+
+
+/* CLOCK */
+
+function updateClock(){
+
+const d=new Date();
+
+document.getElementById("date").textContent=
+d.toLocaleDateString(undefined,{
+month:"short",
+day:"2-digit",
+year:"numeric"
+}).toUpperCase();
+
+document.getElementById("time").textContent=
+d.toLocaleTimeString([],{
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+});
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+
+/* CAMERA */
 
 async function startCamera(){
-  try{
-    if(stream) stream.getTracks().forEach(t=>t.stop());
-    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:facing,width:{ideal:1280},height:{ideal:960}},audio:false});
-    video.srcObject=stream; $('#placeholder').style.display='none'; toast('camera ready ♡');
-  }catch(e){toast('camera permission is needed to use DIGICAM ♡');}
+
+try{
+
+if(stream){
+
+stream.getTracks()
+.forEach(track=>track.stop());
+
 }
-$('#startBtn').onclick=startCamera;
-$('#flipBtn').onclick=()=>{facing=facing==='user'?'environment':'user';startCamera()};
-$('#soundBtn').onclick=()=>{soundOn=!soundOn;$('#soundBtn').textContent=(soundOn?'🔊 CLICK SOUND: ON':'🔇 CLICK SOUND: OFF')};
+
+stream=await navigator.mediaDevices.getUserMedia({
+
+video:{
+facingMode:facing,
+width:{ideal:1280},
+height:{ideal:960}
+},
+
+audio:false
+
+});
+
+video.srcObject=stream;
+
+document.getElementById("placeholder")
+.style.display="none";
+
+toast("camera ready ♡");
+
+}
+
+catch(error){
+
+toast("please allow camera access ♡");
+
+}
+
+}
+
+
+function flipCamera(){
+
+facing=
+facing==="user"
+?"environment"
+:"user";
+
+startCamera();
+
+}
+
+
+/* SOUND */
+
+function toggleSound(){
+
+sound=!sound;
+
+document.getElementById("soundButton")
+.textContent=
+sound
+?"🔊 CLICK SOUND: ON"
+:"🔇 CLICK SOUND: OFF";
+
+}
+
 
 function clickSound(){
- if(!soundOn)return;
- const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
- const a=new AC(),o=a.createOscillator(),g=a.createGain();
- o.type='triangle';o.frequency.setValueAtTime(780,a.currentTime);o.frequency.exponentialRampToValueAtTime(150,a.currentTime+.09);
- g.gain.setValueAtTime(.0001,a.currentTime);g.gain.exponentialRampToValueAtTime(.16,a.currentTime+.005);g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+.12);
- o.connect(g).connect(a.destination);o.start();o.stop(a.currentTime+.13);
-}
-function drawImage(){
- if(!currentImage)return;
- canvas.width=currentImage.width;canvas.height=currentImage.height;
- ctx.save();
- let f=currentFilter;
- if(f==='warm')ctx.filter='sepia(.22) saturate(1.18) contrast(1.02)';
- if(f==='pink')ctx.filter='saturate(1.08) hue-rotate(-8deg) brightness(1.06)';
- if(f==='dreamy')ctx.filter='brightness(1.08) saturate(1.08) contrast(.94)';
- if(f==='mono')ctx.filter='grayscale(1) contrast(1.05)';
- ctx.drawImage(currentImage,0,0);
- ctx.restore();
- if($('#glow').checked){
-   const s=+$('#glowStrength').value/100;
-   ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=.14+.26*s;ctx.filter=`blur(${2+8*s}px)`;
-   ctx.drawImage(currentImage,-2,-2,canvas.width+4,canvas.height+4);ctx.restore();
- }
-}
-$('#snapBtn').onclick=()=>{
- if(!stream){toast('start the camera first ♡');return}
- const w=video.videoWidth||960,h=video.videoHeight||720;
- const temp=document.createElement('canvas');temp.width=w;temp.height=h;
- const t=temp.getContext('2d');t.save();if(facing==='user')t.translate(w,0),t.scale(-1,1);t.drawImage(video,0,0,w,h);t.restore();
- const img=new Image();img.onload=()=>{currentImage=img;currentFilter='none';$$('[data-filter]').forEach(x=>x.style.fontWeight='normal');$('#editor').classList.add('show');drawImage();layer.innerHTML='';$('#flash').classList.remove('go');void $('#flash').offsetWidth;$('#flash').classList.add('go');clickSound();toast('SNAP! ♡');go('digicam')};img.src=temp.toDataURL('image/jpeg',.94);
-};
-$$('[data-filter]').forEach(b=>b.onclick=()=>{currentFilter=b.dataset.filter;drawImage()});
-$('#glow').onchange=drawImage;$('#glowStrength').oninput=drawImage;
 
-function addSticker(char){
- const s=document.createElement('div');s.className='sticker';s.textContent=char;s.style.left=(15+Math.random()*65)+'%';s.style.top=(15+Math.random()*65)+'%';
- layer.appendChild(s);makeDrag(s);
+if(!sound)return;
+
+const AudioContext=
+window.AudioContext||
+window.webkitAudioContext;
+
+if(!AudioContext)return;
+
+const audio=new AudioContext();
+
+const oscillator=
+audio.createOscillator();
+
+const gain=
+audio.createGain();
+
+oscillator.type="triangle";
+
+oscillator.frequency.setValueAtTime(
+780,
+audio.currentTime
+);
+
+oscillator.frequency.exponentialRampToValueAtTime(
+150,
+audio.currentTime+.1
+);
+
+gain.gain.setValueAtTime(
+.0001,
+audio.currentTime
+);
+
+gain.gain.exponentialRampToValueAtTime(
+.15,
+audio.currentTime+.01
+);
+
+gain.gain.exponentialRampToValueAtTime(
+.0001,
+audio.currentTime+.12
+);
+
+oscillator.connect(gain);
+gain.connect(audio.destination);
+
+oscillator.start();
+
+oscillator.stop(
+audio.currentTime+.13
+);
+
 }
-$$('[data-sticker]').forEach(b=>b.onclick=()=>addSticker(b.dataset.sticker));
-function makeDrag(el){
- let sx,sy,ox,oy;
- const down=e=>{e.preventDefault();const p=e.touches?e.touches[0]:e;sx=p.clientX;sy=p.clientY;const r=el.getBoundingClientRect();ox=r.left;oy=r.top;document.onpointermove=move;document.onpointerup=up};
- const move=e=>{const dx=e.clientX-sx,dy=e.clientY-sy,r=layer.getBoundingClientRect();el.style.left=((ox+dx-r.left)/r.width*100)+'%';el.style.top=((oy+dy-r.top)/r.height*100)+'%'};const up=()=>{document.onpointermove=null;document.onpointerup=null};
- el.onpointerdown=down;
+
+
+/* TAKE PHOTO */
+
+function takePicture(){
+
+if(!stream){
+
+toast("start the camera first ♡");
+return;
+
 }
-function dataURLWithStickers(){
- const out=document.createElement('canvas'),r=canvas.getBoundingClientRect(),scale=canvas.width/r.width;
- out.width=canvas.width;out.height=canvas.height;const c=out.getContext('2d');c.drawImage(canvas,0,0);
- $$('.sticker').forEach(s=>{const sr=s.getBoundingClientRect();const lr=layer.getBoundingClientRect();const x=(sr.left-lr.left+sr.width/2)/lr.width*out.width;const y=(sr.top-lr.top+sr.height/2)/lr.height*out.height;c.font=(28*scale)+'px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(s.textContent,x,y)});
- return out.toDataURL('image/jpeg',.95);
+
+const temp=document.createElement("canvas");
+
+temp.width=video.videoWidth;
+temp.height=video.videoHeight;
+
+const t=temp.getContext("2d");
+
+t.save();
+
+if(facing==="user"){
+
+t.translate(temp.width,0);
+t.scale(-1,1);
+
 }
-$('#saveBtn').onclick=()=>{
- const url=dataURLWithStickers();let saved=JSON.parse(localStorage.getItem('daydreamGallery')||'[]');saved.unshift(url);saved=saved.slice(0,20);localStorage.setItem('daydreamGallery',JSON.stringify(saved));renderGallery();toast('saved to your gallery ♡');go('gallery');
+
+t.drawImage(
+video,
+0,
+0,
+temp.width,
+temp.height
+);
+
+t.restore();
+
+const image=new Image();
+
+image.onload=()=>{
+
+currentImage=image;
+currentFilter="none";
+currentBorder="none";
+selectedElement=null;
+
+document.getElementById("editor")
+.classList.add("show");
+
+document.getElementById("stickers")
+.innerHTML="";
+
+document.querySelectorAll(".border-btn")
+.forEach(btn=>{
+btn.classList.toggle(
+"active",
+btn.dataset.border==="none"
+);
+});
+
+updateSelectedUI();
+
+draw();
+
+const flash=
+document.getElementById("flash");
+
+flash.classList.remove("active");
+
+void flash.offsetWidth;
+
+flash.classList.add("active");
+
+clickSound();
+
+toast("SNAP! ♡");
+
 };
-$('#newBtn').onclick=()=>{$('#editor').classList.remove('show');layer.innerHTML='';go('digicam')};
-function renderGallery(){const g=$('#galleryGrid'),a=JSON.parse(localStorage.getItem('daydreamGallery')||'[]');g.innerHTML='';if(!a.length){g.innerHTML='<div class="empty">your tiny memories will appear here ♡<br>take a picture in DIGICAM!</div>';return}a.forEach((u,i)=>{const img=new Image();img.src=u;img.alt='saved memory '+(i+1);img.loading='lazy';g.appendChild(img)})}
+
+image.src=
+temp.toDataURL(
+"image/jpeg",
+.95
+);
+
+}
+
+
+/* FILTER */
+
+function filter(type){
+
+currentFilter=type;
+
+draw();
+
+}
+
+
+/* DRAW PHOTO */
+
+function draw(){
+
+if(!currentImage)return;
+
+canvas.width=currentImage.width;
+canvas.height=currentImage.height;
+
+ctx.save();
+
+if(currentFilter==="warm")
+ctx.filter=
+"sepia(.2) saturate(1.2)";
+
+if(currentFilter==="pink")
+ctx.filter=
+"saturate(1.1) hue-rotate(-8deg) brightness(1.05)";
+
+if(currentFilter==="dreamy")
+ctx.filter=
+"brightness(1.08) saturate(1.1) contrast(.94)";
+
+if(currentFilter==="mono")
+ctx.filter=
+"grayscale(1)";
+
+ctx.drawImage(
+currentImage,
+0,
+0
+);
+
+ctx.restore();
+
+
+if(document.getElementById("glow").checked){
+
+const strength=
+Number(
+document.getElementById("glowStrength").value
+)/100;
+
+ctx.save();
+
+ctx.globalCompositeOperation="screen";
+
+ctx.globalAlpha=
+.15+.25*strength;
+
+ctx.filter=
+`blur(${2+8*strength}px)`;
+
+ctx.drawImage(
+currentImage,
+-2,
+-2,
+canvas.width+4,
+canvas.height+4
+);
+
+ctx.restore();
+
+}
+
+}
+
+
+/* BORDER SELECTION */
+
+function setBorder(border,button){
+
+currentBorder=border;
+
+document.querySelectorAll(".border-btn")
+.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+if(border==="none")
+toast("border removed ♡");
+else
+toast(border+" border added ✨");
+
+}
+
+
+/* ADD STICKER */
+
+function addSticker(symbol){
+
+const sticker=
+document.createElement("div");
+
+sticker.className=
+"design-item sticker";
+
+sticker.textContent=symbol;
+
+sticker.dataset.type="sticker";
+
+sticker.dataset.rotation="0";
+
+sticker.style.left=
+(15+Math.random()*65)+"%";
+
+sticker.style.top=
+(15+Math.random()*65)+"%";
+
+document.getElementById("stickers")
+.appendChild(sticker);
+
+makeDraggable(sticker);
+
+selectElement(sticker);
+
+applyTransform(sticker);
+
+}
+
+
+/* ADD TEXT */
+
+function addText(){
+
+const input=
+document.getElementById("textInput");
+
+const text=
+input.value.trim();
+
+if(!text){
+
+toast("write something first ♡");
+return;
+
+}
+
+const style=
+document.getElementById("textStyle")
+.value;
+
+const el=
+document.createElement("div");
+
+el.className=
+"design-item text-item text-"+style;
+
+el.textContent=text;
+
+el.dataset.type="text";
+
+el.dataset.rotation="0";
+
+el.style.left="35%";
+el.style.top="35%";
+el.style.fontSize="32px";
+
+document.getElementById("stickers")
+.appendChild(el);
+
+makeDraggable(el);
+
+selectElement(el);
+
+applyTransform(el);
+
+input.value="";
+
+toast("cute text added ♡");
+
+}
+
+
+/* ADD CUSTOM PICTURE */
+
+function addCustomImage(event){
+
+const file=
+event.target.files[0];
+
+if(!file)return;
+
+const reader=
+new FileReader();
+
+reader.onload=e=>{
+
+const img=
+document.createElement("img");
+
+img.src=e.target.result;
+
+img.className=
+"design-item photo-item";
+
+img.dataset.type="image";
+
+img.dataset.rotation="0";
+
+img.style.left="30%";
+img.style.top="30%";
+img.style.width="150px";
+
+document.getElementById("stickers")
+.appendChild(img);
+
+makeDraggable(img);
+
+selectElement(img);
+
+applyTransform(img);
+
+toast("picture added ♡");
+
+};
+
+reader.readAsDataURL(file);
+
+event.target.value="";
+
+}
+
+
+/* SELECT ITEM */
+
+function selectElement(el){
+
+selectedElement=el;
+
+document.querySelectorAll(".design-item")
+.forEach(x=>{
+x.classList.remove("selected");
+});
+
+el.classList.add("selected");
+
+updateSelectedUI();
+
+}
+
+
+/* SELECTED CONTROLS */
+
+function updateSelectedUI(){
+
+const controls=
+document.getElementById("selectedControls");
+
+const hint=
+document.getElementById("selectedHint");
+
+if(!selectedElement){
+
+controls.style.display="none";
+
+hint.textContent=
+"tap a sticker, text or picture to edit it";
+
+return;
+
+}
+
+controls.style.display="block";
+
+hint.textContent=
+"selected: "+
+(selectedElement.dataset.type||"item");
+
+const rotation=
+Number(
+selectedElement.dataset.rotation||0
+);
+
+document.getElementById("itemRotation")
+.value=rotation;
+
+let size=50;
+
+if(selectedElement.dataset.type==="image"){
+
+size=
+parseFloat(
+selectedElement.style.width
+)||150;
+
+}else{
+
+size=
+parseFloat(
+getComputedStyle(
+selectedElement
+).fontSize
+)||30;
+
+}
+
+document.getElementById("itemSize")
+.value=
+Math.max(
+20,
+Math.min(180,size)
+);
+
+}
+
+
+/* ROTATION */
+
+function changeSelectedRotation(value){
+
+if(!selectedElement)return;
+
+selectedElement.dataset.rotation=value;
+
+applyTransform(selectedElement);
+
+}
+
+
+function rotateSelected(amount){
+
+if(!selectedElement)return;
+
+let value=
+Number(
+selectedElement.dataset.rotation||0
+)+amount;
+
+if(value>180)value-=360;
+
+if(value<-180)value+=360;
+
+document.getElementById("itemRotation")
+.value=value;
+
+selectedElement.dataset.rotation=value;
+
+applyTransform(selectedElement);
+
+}
+
+
+/* SIZE */
+
+function changeSelectedSize(value){
+
+if(!selectedElement)return;
+
+if(
+selectedElement.dataset.type==="image"
+){
+
+selectedElement.style.width=
+value+"px";
+
+}else{
+
+selectedElement.style.fontSize=
+value+"px";
+
+}
+
+applyTransform(selectedElement);
+
+}
+
+
+/* TRANSFORM */
+
+function applyTransform(el){
+
+el.style.transform=
+`rotate(${Number(
+el.dataset.rotation||0
+)}deg)`;
+
+}
+
+
+/* DELETE */
+
+function deleteSelected(){
+
+if(!selectedElement)return;
+
+selectedElement.remove();
+
+selectedElement=null;
+
+updateSelectedUI();
+
+toast("removed ♡");
+
+}
+
+
+/* DRAGGING */
+
+function makeDraggable(element){
+
+let startX;
+let startY;
+let startLeft;
+let startTop;
+
+element.addEventListener(
+"pointerdown",
+function(e){
+
+e.preventDefault();
+e.stopPropagation();
+
+selectElement(element);
+
+startX=e.clientX;
+startY=e.clientY;
+
+const rect=
+element.getBoundingClientRect();
+
+startLeft=rect.left;
+startTop=rect.top;
+
+const move=e2=>{
+
+const layer=
+document
+.getElementById("stickers")
+.getBoundingClientRect();
+
+element.style.left=
+(
+(startLeft+
+e2.clientX-
+startX-
+layer.left)
+/
+layer.width*
+100
+)+"%";
+
+element.style.top=
+(
+(startTop+
+e2.clientY-
+startY-
+layer.top)
+/
+layer.height*
+100
+)+"%";
+
+};
+
+const up=()=>{
+
+document.removeEventListener(
+"pointermove",
+move
+);
+
+document.removeEventListener(
+"pointerup",
+up
+);
+
+};
+
+document.addEventListener(
+"pointermove",
+move
+);
+
+document.addEventListener(
+"pointerup",
+up
+);
+
+});
+
+}
+
+
+/* DESELECT */
+
+document
+.getElementById("stickers")
+.addEventListener(
+"pointerdown",
+function(e){
+
+if(e.target===this){
+
+selectedElement=null;
+
+updateSelectedUI();
+
+}
+
+}
+);
+
+
+/* DRAW BORDERS ON SAVED PHOTO */
+
+function drawBorder(c,w,h,type){
+
+if(type==="none")return;
+
+const p=
+Math.max(
+18,
+Math.round(
+Math.min(w,h)*.045
+)
+);
+
+c.save();
+
+
+/* KITTY */
+
+if(type==="kitty"){
+
+c.fillStyle="#fffaf8";
+
+c.fillRect(
+0,0,w,h
+);
+
+c.strokeStyle="#e9a9bb";
+c.lineWidth=4;
+
+c.strokeRect(
+8,8,w-16,h-16
+);
+
+c.font=
+(p*.9)+"px serif";
+
+c.textAlign="center";
+c.textBaseline="middle";
+
+for(
+let x=p/2;
+x<w;
+x+=p*1.6
+){
+
+c.fillText(
+"🐱",
+x,
+p*.55
+);
+
+c.fillText(
+"🎀",
+x,
+h-p*.55
+);
+
+}
+
+for(
+let y=p*1.6;
+y<h;
+y+=p*1.7
+){
+
+c.fillText(
+"♡",
+p*.55,
+y
+);
+
+c.fillText(
+"🐾",
+w-p*.55,
+y
+);
+
+}
+
+}
+
+
+/* GINGHAM */
+
+if(type==="gingham"){
+
+c.fillStyle="#fff7fa";
+
+c.fillRect(
+0,0,w,h
+);
+
+c.globalAlpha=.55;
+
+c.fillStyle="#f5a9bd";
+
+for(
+let x=0;
+x<w;
+x+=p
+){
+
+c.fillRect(
+x,0,p/2,h
+);
+
+}
+
+for(
+let y=0;
+y<h;
+y+=p
+){
+
+c.fillRect(
+0,y,w,p/2
+);
+
+}
+
+c.globalAlpha=1;
+
+c.strokeStyle="#ef8faa";
+c.lineWidth=3;
+
+c.strokeRect(
+6,6,w-12,h-12
+);
+
+c.font=p+"px serif";
+c.textAlign="center";
+c.textBaseline="middle";
+
+for(
+let x=p/2;
+x<w;
+x+=p*2
+){
+
+c.fillText(
+"🎀",
+x,
+p*.55
+);
+
+c.fillText(
+"🎀",
+x,
+h-p*.55
+);
+
+}
+
+}
+
+
+/* FLORAL */
+
+if(type==="floral"){
+
+c.fillStyle="#fffdf8";
+
+c.fillRect(
+0,0,w,h
+);
+
+c.strokeStyle="#dcb7c1";
+c.lineWidth=4;
+
+c.strokeRect(
+8,8,w-16,h-16
+);
+
+c.font=p+"px serif";
+
+c.textAlign="center";
+c.textBaseline="middle";
+
+for(
+let x=p/2;
+x<w;
+x+=p*1.5
+){
+
+c.fillText(
+"🌷",
+x,
+p*.55
+);
+
+c.fillText(
+"🌼",
+x,
+h-p*.55
+);
+
+}
+
+for(
+let y=p*1.5;
+y<h;
+y+=p*1.6
+){
+
+c.fillText(
+"🌸",
+p*.55,
+y
+);
+
+c.fillText(
+"🌿",
+w-p*.55,
+y
+);
+
+}
+
+}
+
+
+/* BUNNY */
+
+if(type==="bunny"){
+
+c.fillStyle="#fdfaff";
+
+c.fillRect(
+0,0,w,h
+);
+
+c.strokeStyle="#cbb5df";
+c.lineWidth=4;
+
+c.strokeRect(
+8,8,w-16,h-16
+);
+
+c.font=p+"px serif";
+
+c.textAlign="center";
+c.textBaseline="middle";
+
+for(
+let x=p/2;
+x<w;
+x+=p*1.6
+){
+
+c.fillText(
+"🐰",
+x,
+p*.55
+);
+
+c.fillText(
+"💗",
+x,
+h-p*.55
+);
+
+}
+
+for(
+let y=p*1.5;
+y<h;
+y+=p*1.7
+){
+
+c.fillText(
+"☁️",
+p*.55,
+y
+);
+
+c.fillText(
+"🌸",
+w-p*.55,
+y
+);
+
+}
+
+}
+
+
+/* DREAM */
+
+if(type==="dream"){
+
+c.fillStyle="#f9fbff";
+
+c.fillRect(
+0,0,w,h
+);
+
+c.strokeStyle="#a9c9e8";
+c.lineWidth=4;
+
+c.strokeRect(
+8,8,w-16,h-16
+);
+
+c.font=p+"px serif";
+
+c.textAlign="center";
+c.textBaseline="middle";
+
+for(
+let x=p/2;
+x<w;
+x+=p*1.6
+){
+
+c.fillText(
+"☁️",
+x,
+p*.55
+);
+
+c.fillText(
+"✦",
+x,
+h-p*.55
+);
+
+}
+
+for(
+let y=p*1.5;
+y<h;
+y+=p*1.7
+){
+
+c.fillText(
+"🫧",
+p*.55,
+y
+);
+
+c.fillText(
+"☁️",
+w-p*.55,
+y
+);
+
+}
+
+}
+
+c.restore();
+
+}
+
+
+/* GET ITEM POSITION */
+
+function getElementInfo(el,layerRect){
+
+const rect=
+el.getBoundingClientRect();
+
+return{
+
+x:
+(rect.left-layerRect.left+
+rect.width/2)
+/
+layerRect.width,
+
+y:
+(rect.top-layerRect.top+
+rect.height/2)
+/
+layerRect.height,
+
+w:
+rect.width/
+layerRect.width,
+
+h:
+rect.height/
+layerRect.height,
+
+rotation:
+Number(
+el.dataset.rotation||0
+),
+
+type:
+el.dataset.type,
+
+text:
+el.textContent,
+
+src:
+el.dataset.type==="image"
+?el.src
+:null
+
+};
+
+}
+
+
+/* DRAW ITEMS ON SAVED PHOTO */
+
+async function drawDesignElements(
+c,
+outputW,
+outputH,
+offsetX=0,
+offsetY=0
+){
+
+const layer=
+document.getElementById("stickers");
+
+const layerRect=
+layer.getBoundingClientRect();
+
+const items=
+[
+...document.querySelectorAll(
+".design-item"
+)
+];
+
+for(
+const el of items
+){
+
+const info=
+getElementInfo(
+el,
+layerRect
+);
+
+const x=
+offsetX+
+info.x*outputW;
+
+const y=
+offsetY+
+info.y*outputH;
+
+c.save();
+
+c.translate(
+x,
+y
+);
+
+c.rotate(
+info.rotation*
+Math.PI/
+180
+);
+
+
+/* IMAGE */
+
+if(info.type==="image"){
+
+const img=new Image();
+
+img.src=info.src;
+
+await new Promise(
+resolve=>{
+
+if(img.complete)
+resolve();
+
+else{
+
+img.onload=resolve;
+img.onerror=resolve;
+
+}
+
+}
+);
+
+const ww=
+info.w*outputW;
+
+const hh=
+info.h*outputH;
+
+c.drawImage(
+img,
+-ww/2,
+-hh/2,
+ww,
+hh
+);
+
+}
+
+
+/* TEXT */
+
+else if(info.type==="text"){
+
+let fontName="Patrick Hand";
+
+if(
+el.classList.contains(
+"text-bubble"
+)
+)
+fontName="Baloo 2";
+
+if(
+el.classList.contains(
+"text-type"
+)
+)
+fontName="DM Mono";
+
+if(
+el.classList.contains(
+"text-soft"
+)
+)
+fontName="Fredoka";
+
+const px=Math.max(
+14,
+parseFloat(
+getComputedStyle(el)
+.fontSize
+)*
+(
+outputW/
+layerRect.width
+)
+);
+
+c.font=
+`${
+el.classList.contains("text-bubble")
+?"700 "
+:""
+}${px}px "${fontName}",sans-serif`;
+
+c.textAlign="center";
+c.textBaseline="middle";
+
+c.fillStyle=
+getComputedStyle(el).color||
+"#514243";
+
+c.fillText(
+info.text,
+0,
+0
+);
+
+}
+
+
+/* STICKER */
+
+else{
+
+const px=Math.max(
+18,
+parseFloat(
+getComputedStyle(el)
+.fontSize
+)*
+(
+outputW/
+layerRect.width
+)
+);
+
+c.font=
+`${px}px sans-serif`;
+
+c.textAlign="center";
+c.textBaseline="middle";
+
+c.fillText(
+info.text,
+0,
+0
+);
+
+}
+
+c.restore();
+
+}
+
+}
+
+
+/* SAVE */
+
+async function savePicture(){
+
+if(!currentImage)return;
+
+const borderSize=
+currentBorder==="none"
+?0
+:Math.round(
+Math.min(
+canvas.width,
+canvas.height
+)*.12
+);
+
+const output=
+document.createElement("canvas");
+
+output.width=
+canvas.width+
+borderSize*2;
+
+output.height=
+canvas.height+
+borderSize*2;
+
+const c=
+output.getContext("2d");
+
+
+/* BACKGROUND */
+
+c.fillStyle="#fff";
+
+c.fillRect(
+0,
+0,
+output.width,
+output.height
+);
+
+
+/* PHOTO */
+
+c.drawImage(
+canvas,
+borderSize,
+borderSize,
+canvas.width,
+canvas.height
+);
+
+
+/* DECORATIONS */
+
+await drawDesignElements(
+c,
+canvas.width,
+canvas.height,
+borderSize,
+borderSize
+);
+
+
+/* BORDER */
+
+drawBorder(
+c,
+output.width,
+output.height,
+currentBorder
+);
+
+
+/* IMAGE */
+
+const image=
+output.toDataURL(
+"image/jpeg",
+.95
+);
+
+
+/* LOCAL STORAGE */
+
+let gallery=
+JSON.parse(
+localStorage.getItem(
+"daydreamGallery"
+)||"[]"
+);
+
+gallery.unshift(image);
+
+gallery=
+gallery.slice(0,20);
+
+localStorage.setItem(
+"daydreamGallery",
+JSON.stringify(gallery)
+);
+
 renderGallery();
-window.addEventListener('beforeunload',()=>stream&&stream.getTracks().forEach(t=>t.stop()));
+
+toast(
+"saved to your gallery ♡"
+);
+
+go("gallery");
+
+}
+
+
+/* NEW PHOTO */
+
+function newPicture(){
+
+document
+.getElementById("editor")
+.classList
+.remove("show");
+
+document
+.getElementById("stickers")
+.innerHTML="";
+
+selectedElement=null;
+
+updateSelectedUI();
+
+go("digicam");
+
+}
+
+
+/* GALLERY */
+
+function renderGallery(){
+
+const gallery=
+document.getElementById(
+"gallery"
+);
+
+const saved=
+JSON.parse(
+localStorage.getItem(
+"daydreamGallery"
+)||"[]"
+);
+
+if(saved.length===0){
+
+gallery.innerHTML=`
+
+<div class="empty">
+
+your tiny memories will appear here ♡
+
+<br>
+
+take a picture in DIGICAM!
+
+</div>
+
+`;
+
+return;
+
+}
+
+gallery.innerHTML="";
+
+saved.forEach(
+(image,index)=>{
+
+const img=
+document.createElement("img");
+
+img.src=image;
+
+img.alt=
+"Daydream memory "+
+(index+1);
+
+gallery.appendChild(img);
+
+}
+);
+
+}
+
+renderGallery();
+
+
+/* STOP CAMERA */
+
+window.addEventListener(
+"beforeunload",
+()=>{
+
+if(stream){
+
+stream
+.getTracks()
+.forEach(
+track=>track.stop()
+);
+
+}
+
+}
+);
+
 </script>
+
 </body>
 </html>
